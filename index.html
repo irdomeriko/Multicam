@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Multicámara 24h Nürburgring – Onboards + Drift + Pit</title>
+  <style>
+    body { margin: 0; background: #000; color: #fff; font-family: sans-serif; }
+    header { padding: 15px; text-align: center; font-size: 1.5em; background: #222; position: sticky; top: 0; z-index:10; }
+    .controls { display: flex; flex-wrap: wrap; justify-content: center; padding: 10px; gap: 10px; background: #111; }
+    .controls button { padding:8px 12px; background:#333; color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    .controls button:hover { background:#555; }
+    .grid { display:flex; flex-wrap: wrap; justify-content: center; gap:10px; padding:10px; }
+    iframe { border:none; display:none; }
+    .small-video { flex:1 1 32%; min-width:300px; height:300px; }
+    .main-video { width: 100%; height: 700px; }
+    .visible { display:block !important; }
+  </style>
+</head>
+<body>
+  <header>🎥 Multicámara 24h Nürburgring – Onboards + Drift + Pit Lane</header>
+
+  <div class="controls">
+    <button onclick="toggle('drift')">🔥 Drift Show</button>
+    <button onclick="toggle('pitlane')">🚰 Pit Lane</button>
+    <button onclick="toggle('on1')">#1</button>
+    <button onclick="toggle('on13')">#13</button>
+    <button onclick="toggle('on14')">#14</button>
+    <button onclick="toggle('on16')">#16</button>
+    <button onclick="toggle('on17')">#17</button>
+    <button onclick="toggle('on19')">#19</button>
+    <button onclick="toggle('on27')">#27</button>
+    <button onclick="toggle('on33')">#33</button>
+    <button onclick="toggle('on44')">#44</button>
+    <button onclick="toggle('on88')">#88</button>
+    <button onclick="toggle('on97')">#97</button>
+    <button onclick="toggle('on98')">#98</button>
+    <button onclick="toggle('on109')">#109</button>
+    <button onclick="toggle('on110')">#110</button>
+    <button onclick="toggle('on718')">#718</button>
+    <button onclick="toggle('on830')">#830</button>
+    <button onclick="toggle('on911')">#911</button>
+    <button onclick="showAll()">✅ Mostrar todo</button>
+    <button onclick="hideAll()">❌ Ocultar todo</button>
+  </div>
+
+  <div class="grid">
+    <iframe id="drift" class="main-video" src="https://www.youtube.com/embed/_nXkK17c-9k?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="pitlane" class="small-video" src="https://www.youtube.com/embed/peDwqhVE_18?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+
+    <iframe id="on1" class="small-video" src="https://www.youtube.com/embed/g-ioq7t0qgc?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on13" class="small-video" src="https://www.youtube.com/embed/VbNp7dSI-y0?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on14" class="small-video" src="https://www.youtube.com/embed/9EIuC_v_lQg?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on16" class="small-video" src="https://www.youtube.com/embed/buy2LRHcA-0?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on17" class="small-video" src="https://www.youtube.com/embed/6H-rKAzI3vc?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on19" class="small-video" src="https://www.youtube.com/embed/Qg3YgjaZIoU?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on27" class="small-video" src="https://www.youtube.com/embed/ZEPAuItPQSI?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on33" class="small-video" src="https://www.youtube.com/embed/cHTdu9Yfwp8?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on44" class="small-video" src="https://www.youtube.com/embed/7z-zTI3TDaQ?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on88" class="small-video" src="https://www.youtube.com/embed/7HN3AqMeMc0?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on97" class="small-video" src="https://www.youtube.com/embed/JlZP4NoKnhg?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on98" class="small-video" src="https://www.youtube.com/embed/ULia3lLKoEA?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on109" class="small-video" src="https://www.youtube.com/embed/1UXH_VjSwSg?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on110" class="small-video" src="https://www.youtube.com/embed/L2YCMfWy5NU?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on718" class="small-video" src="https://www.youtube.com/embed/OVY5K0cbT5I?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on830" class="small-video" src="https://www.youtube.com/embed/ek6irpP4E-I?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+    <iframe id="on911" class="small-video" src="https://www.youtube.com/embed/67LVtQD0C6w?autoplay=1&mute=0" allow="autoplay; fullscreen"></iframe>
+  </div>
+
+  <script>
+    function toggle(id) {
+      document.getElementById(id).classList.toggle('visible');
+    }
+    function showAll() {
+      document.querySelectorAll('iframe').forEach(el => el.classList.add('visible'));
+    }
+    function hideAll() {
+      document.querySelectorAll('iframe').forEach(el => el.classList.remove('visible'));
+    }
+  </script>
+</body>
+</html>
